@@ -188,6 +188,11 @@ nav .openMenu{
     font-size: 16px;
     font-weight: 700;
 }
+.title{
+    width: 24vw;
+    height: auto;
+    text-align: left;
+}
 .content-course,.course-details,.course-duration{
     display: flex;
 }
@@ -220,16 +225,18 @@ nav .openMenu{
         z-index: 10;
     }
     .main-menu{
-        gap: 20px;
+        gap: 9px;
     }
 
     nav .openMenu{
         
         display: block;
-        margin-right: 10vw;
+        /* margin-right: 10vw; */
     }
     .nav-menu{
         padding-right: 0;
+        display: flex;
+        justify-content: space-around;
     }
 
     .card-container {
@@ -241,12 +248,18 @@ nav .openMenu{
         margin: 0 auto; 
         box-sizing: border-box; 
     }
+    .title{
+        width: 70%;
+        font-size: 12px;
+        background-color: #1F7A54;
+        font-weight: 600;
+    }
 }
 
 @media (min-width: 786px) and (max-width: 1032px) {
     .card {
-        width: 74vw; /* Set the specific width for this range */
-        margin: 0 auto; /* Adjust the margin as needed */
-        box-sizing: border-box; /* Ensure total width includes padding and border */
+        width: 74vw; 
+        margin: 0 auto; 
+        box-sizing: border-box; 
     }
 }
