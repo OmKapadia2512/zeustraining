@@ -8,6 +8,10 @@ nav {
   flex-direction: row;
   margin-bottom: 24px;
 }
+nav svg {
+  margin: 11px 0 0 24px;
+  height: 36px;
+}
 nav .quantum {
   color: white;
   font-size: 18px;
@@ -51,23 +55,22 @@ nav .openMenu {
 }
 
 @media screen and (max-width: 786px) {
-  nav .main-menu li a {
+  nav .main-menu {
     height: 50vh;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
-    display: flex;
+    background-color: black;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background: url(./images/header\ pattern\ image\ \(1\).png);
     transition: top 1s ease;
-    display: none;
     z-index: 10;
-  }
-  .main-menu {
     gap: 9px;
+  }
+  .main-menu ul {
+    display: flex;
   }
   nav .openMenu {
     display: block;

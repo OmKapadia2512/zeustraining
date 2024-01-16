@@ -1,20 +1,27 @@
 @import "mixin";
-@media screen and (max-width:786px){
-    nav .main-menu li a{ 
+@media screen and (max-width:786px)
+{
+    nav .main-menu { 
         height: 50vh;
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
-        @include flexCenter(column,center);
-        background:url(./images/header\ pattern\ image\ \(1\).png);
+        background-color:black;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         transition: top 1s ease;
-        display: none;
         z-index: 10;
-    }
-    .main-menu{
         gap: 9px;
+ 
     }
+
+    .main-menu ul{
+        display: flex;
+
+    }
+
 
     nav .openMenu{
         
