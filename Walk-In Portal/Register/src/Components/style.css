@@ -1,0 +1,143 @@
+.drives {
+  margin: 35px 24px 41px 24px;
+  font-family: Quickmed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.d1 {
+  box-sizing: border-box;
+  width: 1333px;
+  min-height: 244px;
+  padding: 16px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2392156863);
+  background-color: #ffffff;
+}
+ .d1 p {
+  font-size: 22px;
+  color: #1f7a54;
+  margin: 0px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+ .dateloca {
+  margin-top: 16px;
+}
+.dateloca p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  color: #666666;
+  font-size: 12px;
+}
+.dateloc1 {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-start;
+}
+.dateloc1 .date {
+  font-size: 14px;
+  color: #222222;
+  padding-right: 16px;
+  border-right: 1px solid #000000;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+ .location {
+  padding-left: 19.33px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+ .location svg {
+  width: 15px;
+  height: 11px;
+  color: #666666;
+}
+ .location p {
+  font-size: 12px;
+  color: #666666;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+ .d1 hr {
+  margin-top: 16px;
+}
+ .jobroles {
+  margin-top: 16px;
+}
+.jobroles p {
+  font-size: 12px;
+  color: #666666;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+ .role {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 8px;
+  gap: 17px;
+  flex-wrap: wrap;
+}
+.role1 {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  align-items: center;
+}
+.outercircle {
+  border: 1px solid #666666;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ .role1 p {
+  color: #222222;
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+.showmore {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+ .showmore button {
+  width: 168px;
+  height: 28px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2392156863);
+  border-radius: 2px;
+  font-size: 14px;
+  background-color: #3fd28b;
+  color: #25313f;
+  border: none;
+}
+.showmore button:hover {
+  cursor: pointer;
+}
+ .extrainfo {
+  margin-top: 19px;
+  display: flex;
+  justify-content: flex-start;
+}
+ .extrainfo p {
+  margin: 0px;
+  background-color: #eedd6b;
+  height: 18px;
+  font-size: 10px;
+  color: #222222;
+  border-radius: 9px;
+  padding: 3px 8px 2px 8px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .d1 {
+    width: 100% !important;
+  }
+} /*# sourceMappingURL=all-drives.component.css.map */

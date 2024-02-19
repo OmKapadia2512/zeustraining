@@ -1,0 +1,90 @@
+.accordion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    background: #dbefff;
+    box-shadow: 0px 4px 6px #000;
+  }
+  
+  .accordion span {
+    font: normal 600 16px/20px QuickSand;
+    color: #222;
+    margin-left: 16px;
+  }
+  
+  .accordion img {
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
+    width: 12px;
+    height: 56px;
+    border-left: 1px solid rgba(0, 0, 0, 0.25);
+  }
+  
+  .accordion-item {
+    background: #fff;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    padding: 24px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+ .input-group label {
+    font: normal 600 12px/16px QuickSand;
+    letter-spacing: 0px;
+    color: #666;
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+  
+  .input-group input {
+    all: unset;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.38);
+    background-color: transparent;
+    font: normal 700 16px/20px QuickSand;
+    color: #222;
+    padding-bottom: 4px;
+  }
+  
+ .input-group select {
+    border: 0;
+    outline: 0;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6px) center;
+    font: normal 700 16px/20px Quicksand;
+    color: #222;
+    background-color: transparent;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.38);
+  }
+  
+.year-of-passing-input {
+    width: 180px;
+  }
+  
+ .input-group .college-location-input {
+    width: fit-content;
+  }
+  
+ .horizontal-flex-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+   .child1,
+   .child2 {
+    flex: 50%;
+  }
+  
+ .select-box {
+    width: 99%;
+  }
+  
+  
+ 
+  

@@ -1,0 +1,230 @@
+/* 
+.qualification{
+  width: 95%;
+  margin: auto;
+  
+}
+.education-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  background: #dbefff 0% 0% no-repeat padding-box;
+ 
+  box-shadow: 0px 4px 6px #000 29;
+}
+
+.education-section span {
+  font: normal normal 600 16px/20px QuickSand;
+  color: #222;
+  margin-left: 16px;
+}
+
+.education-section img {
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 12px;
+  height: 56px;
+  border-left: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.education-section .extra-img {
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 12px;
+  height: 56px;
+  border-left: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.education-card {
+  background: #fff 0% 0% no-repeat padding-box;
+  border-radius: 2px;
+  margin-bottom:24px;
+  padding: 24px;
+}
+
+.education-card .input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-card .input-group label {
+  font: normal normal 600 12px/16px QuickSand;
+  letter-spacing: 0px;
+  color: #666;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.education-card .input-group input {
+  all: unset;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.38);
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font: normal normal 700 16px/20px QuickSand;
+  letter-spacing: 0px;
+  color: #222;
+  padding-bottom: 4px;
+}
+
+.education-card .input-group input[type="number"] {
+  width: fit-content;
+}
+
+.education-card .input-group select {
+  border: 0;
+  outline: 0;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-position: calc(100% - 6px) center;
+  font: normal normal 700 16px/20px Quicksand;
+  color: #222;
+  background-color: transparent;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.38);
+}
+
+.education-card .input-group .course-select {
+  width: 180px;
+}
+
+.education-card .input-group .uni {
+  width: fit-content;
+}
+
+.education-card .two-select {
+  display: flex;
+  flex-direction: row;
+}
+
+.education-card .two-select .degree {
+  flex: 50%;
+}
+
+.education-card .two-select .stream {
+  flex: 50%;
+}
+
+.education-card .qual-select {
+  width: 99%;
+}
+
+.xx1 {
+  border-left: 1px solid rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 110vh;
+  right: 4%;
+  height: 56px;
+}
+
+.applicant-type {
+  background: #fff 0% 0% no-repeat padding-box;
+  border-radius: 2px;
+  margin-bottom:24px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.applicant-type label {
+  font: normal normal 600 12px/16px QuickSand;
+  letter-spacing: 0px;
+  color: #666;
+}
+
+.applicant-type .types {
+  display: flex;
+  align-items: center;
+}
+
+.applicant-type .types .checkbox {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 18px;
+  margin-top: 8px;
+  font: normal normal 700 16px/20px QuickSand;
+  color: #222;
+  margin-right: 24px;
+}
+
+.applicant-type .types input[type="checkbox"] {
+  display: none;
+  margin-left: 8px;
+}
+
+.applicant-type .types .checkbox::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+
+  text-align: center;
+}
+
+
+.exp-card .input-group .checkbox {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 18px;
+  margin-top: 8px;
+  font: normal normal 700 16px/20px QuickSand;
+  color: #222;
+}
+
+.exp-card .input-group input[type="checkbox"] {
+  display: none;
+  margin-right: 8px;
+}
+
+.exp-card .input-group .checkbox::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+
+  text-align: center;
+}
+
+
+
+.next-section2 {
+  margin-top: 32px;
+}
+
+.next-section2 .btn {
+  background: #3fd28b 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 5px #000 3d;
+  border-radius: 2px;
+  width: fit-content;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 10px auto 10px auto;
+  font: normal normal 600 16px/18px QuickSand;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 16px 5px 16px;
+  text-transform: uppercase;
+}
+
+.next-section2 .previous {
+  display: inline-block;
+  margin-left: 42%;
+  margin-right: 16px;
+}
+
+.next-section2 .next {
+  display: inline-block;
+} */

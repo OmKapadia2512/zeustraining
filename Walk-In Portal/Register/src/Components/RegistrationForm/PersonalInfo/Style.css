@@ -1,0 +1,175 @@
+.body1 {
+  width: 90%;
+  height: 95%;
+  padding: 2%;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Quicksand', sans-serif; 
+}
+
+.left {
+  width: 50%;
+}
+
+.left div {
+  width: 100%;
+}
+
+label {
+  display: block;
+  color: #666666;
+  font-size: 12px;
+}
+
+input[type=text],
+input[type=email],
+.portfoliourl {
+  margin-top: 12px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #666666;
+  font-size: 16px;
+  color: #222222;
+}
+
+.portfoliourl {
+  margin-top: 43px;
+}
+
+.lname {
+  margin-top: 40px;
+}
+
+.mail {
+  margin-top: 40px;
+}
+
+.phoneno {
+  font-size: 16px;
+  color: #222222;
+  margin-top: 40px;
+}
+
+.phoneno span {
+  margin-right: 8px;
+}
+
+.phoneno .number {
+  margin-left: 12px;
+  width: 87px;
+  padding: 0px;
+}
+
+.phoneno input {
+  margin-top: 12px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #666666;
+  font-size: 16px;
+  color: #222222;
+}
+
+.phoneno .code {
+  width: 18px;
+}
+
+.resume {
+  margin-top: 43px;
+}
+
+.lab {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.lab label {
+  font-size: 14px;
+  color: #1f7a54;
+}
+
+.hidden {
+  display: none;
+}
+
+.preferredjob {
+  margin-top: 40px;
+}
+
+.check1,
+.check2,
+.check3 {
+  display: flex;
+  justify-content: flex-start;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+input[type="checkbox"] {
+  accent-color: rgba(31, 122, 84, 1); 
+}
+
+label {
+  font-size: 16px;
+  color: #222222;
+  opacity: 100%;
+}
+
+.referred {
+  margin-top: 40px;
+}
+
+.sendjobnotification {
+  margin-top: 33px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.sendjobnotification p {
+  color: #222222;
+  font-size: 14px;
+}
+
+.right {
+  width: 50%;
+}
+
+.right .lab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 186px;
+  float: right;
+}
+
+.right .lab p {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 10px;
+  color: #757575;
+}
+
+.right .lab label {
+  text-align: center;
+  font-size: 12px;
+  color: #1f7a54;
+  margin-top: 16px;
+}
+
+.right .lab img {
+  padding: 9px 0;
+  width: 128px;
+  height: 124px;
+}
+
+.right .lab .hidden {
+  display: none;
+}

@@ -1,0 +1,154 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eeeeee;
+}
+
+.card {
+  width: 488px;
+  max-height: 419px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  opacity: 1;
+  border-radius: 2px 2px 4px 4px;
+  border-top: 4px solid #3ac7ec;
+  padding: 20px 32px 0 32px;
+}
+
+.chead {
+  margin-top: 4px;
+  display: flex;
+  justify-content: flex-start;
+  height: 30px;
+}
+
+.right {
+  width: 100%;
+  text-align: center;
+  font-family: QuickSand;
+  font-size: 23px;
+}
+
+.cbody {
+  margin-top: 32px;
+}
+
+.creac {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #1f7a54;
+}
+
+.notreg {
+  font-size: 12px;
+}
+
+.userpass {
+  margin-top: 32px;
+}
+
+.userpass input,
+.usermail input {
+  font-family: QuickSand;
+  font-size: 16px;
+  color: #666666;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(132, 129, 129);
+  padding: 2px;
+}
+
+a {
+  margin-top: 5px;
+  display: block;
+  text-align: right;
+  color: #1f7a54;
+  font-family: QuickSand;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.stateinp {
+  height: 45px;
+  margin-top: 25px;
+}
+
+.state {
+  width: 34px;
+  height: 20px;
+  font-family: QuickSand;
+  display: block;
+  border: 0 0 2px 0;
+  border-color: black;
+  color: #666666;
+}
+
+.stateinp select {
+  color: #222222;
+  width: 100%;
+  height: 20px;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid rgb(132, 129, 129);
+  margin-top: 5px;
+}
+
+.remindbox {
+  margin-top: 26px;
+}
+
+.inn {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.inn p {
+  margin-top: 3px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  font-family: QuickSand;
+  font-size: 16px;
+  color: #222222;
+}
+
+.submitbtn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78px;
+}
+
+.submitbtn input {
+  color: #1f2834;
+  font-size: 14px;
+  width: 216px;
+  height: 40px;
+  font-family: QuickSand;
+  border: 0;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2392156863);
+  background: #3fd28b 0% 0% no-repeat padding-box;
+}
+
+.lastsec p {
+  margin: 0px;
+  text-align: center;
+  font-family: QuickSand;
+}
+
+.lastsec p a {
+  margin: 0px;
+  text-align: center;
+  font-family: QuickSand;
+  text-decoration: none;
+  color: #1f7a54;
+}
