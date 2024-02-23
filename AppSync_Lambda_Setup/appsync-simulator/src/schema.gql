@@ -102,21 +102,11 @@
 # }
 
 type JobRole {
-  id: Int!
-  guid: String!
+
   job_title: String!
   package: String!
   job_description: String!
   job_requirements: String!
-  dt_created: String!
-  dt_modified: String!
-}
-
-type TimeSlot {
-  id: Int!
-  slot_timmings: String!
-  dt_created: String!
-  dt_modified: String!
 }
 
 type WalkInDrive {
@@ -126,12 +116,11 @@ type WalkInDrive {
   start_date: String!
   end_date: String!
   location: String!
-  # jobRoles: [JobRole!]!
-  # timeSlots: [TimeSlot!]!
+  job_Roles: [JobRole]
+  time_Slots: [String]
   dt_created: String!
   dt_modified: String!
 }
-
 # input UserInput {
 #   id: Int!
 #   guid: String!
