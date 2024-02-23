@@ -1,0 +1,84 @@
+.onedrive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  font-family: Quickmed;
+  margin-bottom: 20px;
+}
+.timeSlotAccordion {
+  width: 100%;
+  background-color: #dbefff;
+}
+.accordionTitle {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2392156863);
+  align-items: center;
+  padding-left: 16px;
+}
+.accordionTitle p {
+  font-size: 16px;
+  color: #222222;
+  margin: 0px;
+}
+.toggleButton {
+  height: 100%;
+  margin: 0;
+  padding: 0px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.times {
+  padding: 0px 16px;
+  width: 100%;
+  background-color: #ffffff;
+  font-family: Quickmed;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2392156863);
+  box-sizing: border-box;
+
+}
+.times p {
+  font-size: 16px;
+  color: #222222;
+}
+.time {
+  margin-top: 24px;
+}
+.time p {
+  font-size: 12px;
+  color: #666666;
+}
+.options {
+  margin-top: 8px;
+}
+.op1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  gap: 8px;
+}
+label {
+  font-size: 16px;
+  color: #222222;
+}
+.times hr {
+  margin: 16px 0px;
+}
+.preference p {
+  color: #666666;
+  font-size: 12px;
+}
+
+.onedrive .times .resumeupload p {
+  font-size: 16px;
+  color: #1f7a54;
+}
+
+input{
+    accent-color: rgba(31, 122, 84, 1);
+}

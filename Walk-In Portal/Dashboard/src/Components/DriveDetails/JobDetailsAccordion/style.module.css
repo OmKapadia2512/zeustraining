@@ -1,0 +1,67 @@
+
+.onedrive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    font-family: Quickmed;
+    margin-bottom: 20px;
+  }
+  
+  .onedrive .jobDetailsAccordion {
+    width: 100%;
+    background-color: #dbefff;
+  }
+  .accordionTitle {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2392156863);
+    align-items: center;
+    padding-left: 16px;
+  }
+   .accordionTitle p {
+    font-size: 16px;
+    color: #222222;
+    margin: 0px;
+  }
+  .toggleButton{
+    height: 100%;
+    margin: 0;
+    padding: 0px 15px;
+    display: flex;
+    align-items: center;
+  }
+
+
+ .role1 {
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+
+  .details {
+    padding: 16px;
+  }
+.title {
+    font-size: 12px;
+    color: #666666;
+  }
+ .cont {
+    font-size: 14px;
+    color: #222222;
+    margin-top: 16px;
+  }
+ .details hr {
+    margin: 16px 0px;
+  }
+ .desc {
+    margin-top: 16px;
+  }
+ .desc p {
+    font-size: 16px;
+    margin: 6px 0px;
+    color: #222222;
+  }
+  

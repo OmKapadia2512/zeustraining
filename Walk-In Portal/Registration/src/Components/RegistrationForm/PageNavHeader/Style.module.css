@@ -1,0 +1,112 @@
+.navigation {
+  background-color: #3c4e62;
+}
+.navmain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95vw;
+  /* margin: 0 24px; */
+  padding: 0 2%;
+}
+.navmain p {
+  font-family: Quickmed;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 15px 0px;
+}
+.colbtn {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.colbtn button {
+  width: 90px;
+  height: 28px;
+  font-family: Quickmed;
+  font-size: 14px;
+  color: #1f2834;
+  border-radius: 2px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2392156863);
+  border: 0px;
+}
+.cancel {
+  background-color: #3fd28b;
+}
+.create {
+  background-color: #3b7b5c;
+}
+.content {
+  padding: 2% 3%;
+  background-color: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2%;
+  background-color: #ffffff;
+  border-radius: 2px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.head hr {
+  width: 30%;
+  height: 0.1px;
+}
+.fir,
+.sec,
+.thi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.num1,
+.num2,
+.num3 {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.num1 {
+  background-color: #3fd28b;
+}
+.num2 {
+  background-color: #3fd28b;
+}
+.num3 {
+  background-color: #757575;
+}
+
+.cont {
+  font-family: Quickmed;
+  font-size: 16px;
+  color: #222222;
+}
+.next {
+  font-family: Quickmed;
+  margin: 32px 0px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.next button {
+  font-size: 14px;
+  border: 0px;
+  height: 28px;
+  width: 90px;
+  background-color: #3fd28b;
+  color: #1f2834;
+}
+button:hover {
+  cursor: pointer;
+}

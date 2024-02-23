@@ -1,0 +1,31 @@
+
+.review {
+    width: 95%;
+    margin:auto
+
+  }
+  .review .personal {
+    width: 100%;
+  }
+  .title {
+    padding: 6px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Quickmed;
+  }
+.title p:first-child {
+    font-size: 16px;
+    color: #222222;
+  }
+ .title p:last-child {
+    font-size: 16px;
+    color: #1f7a54;
+  }
+  
+  button{
+    background-color: #3FD28B;
+    border: none;
+    font-size: 14px;
+    /* padding: 5px 27px; */
+  }

@@ -1,6 +1,8 @@
+
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './style.module.css';
-import useLoginStore from '../ReactStore/Store'
+import useLoginStore from '../ReactStore/Store';
 
 const Login = () => {
   const { email, password, rememberMe, setEmail, setPassword, setRememberMe } = useLoginStore();
@@ -23,12 +25,12 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <div className={styles.usermail}>
               <input type="email" placeholder="Email ID*" value={email} onChange={handleEmailChange} />
-              <a href="#">FORGOT EMAIL ID?</a>
+              <Link to="#">FORGOT EMAIL ID?</Link>
             </div>
 
             <div className={styles.userpass}>
               <input type="password" placeholder="Password*" value={password} onChange={handlePasswordChange} />
-              <a href="#">FORGOT PASSWORD?</a>
+              <Link to="#">FORGOT PASSWORD?</Link>
             </div>
 
             <div className={styles.remindbox}>
@@ -45,7 +47,7 @@ const Login = () => {
             <div className={styles.lastsec}>
               <p className={styles.notreg}>Not registered yet?</p>
               <p className={styles.creac}>
-                <a href="">CREATE AN ACCOUNT</a>
+                <Link to="/registration/personalInfo">CREATE AN ACCOUNT</Link>
               </p>
             </div>
           </form>

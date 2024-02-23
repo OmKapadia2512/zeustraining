@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
-
-
+import { createRoot } from "react-dom/client";
 import Login from "./Components/Login";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const App = () => (
   <>
-    <Login/>
+    <Router>
+      <Login />
+    </Router>
   </>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+createRoot(document.getElementById("app")).render(<App />);

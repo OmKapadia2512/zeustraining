@@ -1,0 +1,83 @@
+
+.onedrive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  font-family: Quickmed;
+}
+
+.onedrive .prereq {
+  width: 100%;
+  background-color: #dbefff;
+  margin-bottom: 20px;
+}
+.head {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2392156863);
+  align-items: center;
+  padding-left: 16px;
+}
+ .head p {
+  font-size: 16px;
+  color: #222222;
+  margin: 0px;
+}
+.toggleButton{
+  height: 100%;
+  margin: 0;
+  padding: 0px 15px;
+  display: flex;
+  align-items: center;
+}
+ .details {
+  padding: 16px;
+  font-family: Quickmed;
+  background-color: #FFFFFF;
+}
+ .general p,
+ .examinstru p,
+ .minrequire p {
+  margin: 0px;
+  font-size: 12px;
+  color: #666666;
+}
+ .ou1,
+ .ou1,
+ .ou1 {
+  margin-top: 16px;
+}
+l .ou1 p,
+ .ou1 p,
+ .ou1 p {
+  margin: 0px;
+  font-size: 14px;
+  color: #222222;
+}
+ .examinstru,
+ .minrequire {
+  margin-top: 16px;
+}
+.onedrive .prereq .details hr {
+  color: #666666;
+}
+ .process p {
+  font-size: 12px;
+  color: #666666;
+}
+ .infoo {
+  margin-top: 16px;
+}
+ .infoo p {
+  font-size: 14px;
+  color: #222222;
+}
+ .round {
+  margin-top: 27px;
+}
+.round p {
+  margin: 4px;
+}
