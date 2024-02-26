@@ -50,7 +50,6 @@ def handle_each_request(event):
 
     data = []
 
-    # PostgreSQL database operations
     if field_name == "getAllWalkInDrives":
         print("1")
         connection = get_db_connection()
@@ -125,4 +124,75 @@ def handle_each_request(event):
             cursor.close()
             close_db_connection(connection)
 
-    return build_response(HTTPStatus.OK, results)
+        return build_response(HTTPStatus.OK, results)
+
+    elif field_name == 'checkLogin':
+        connection = get_db_connection()
+        userEmail = event_arguments['loginCredentials']['userEmail']
+        userPassword = event_arguments['loginCredentials']['userPassword']
+        try:
+            cursor = connection.cursor()
+            cursor.execute("""
+                SELECT id, guid, first_name, last_name, email, password, phone_no, profile_pic 
+                FROM "user" 
+                WHERE email = %s
+            """, (userEmail,))
+            row = cursor.fetchone()
+
+            if row:
+                stored_password = row[5]
+                if userPassword == stored_password:
+                    user_data = {
+                        'id': row[0],
+                        'guid': row[1],
+                        'first_name': row[2],
+                        'last_name': row[3],
+                        'email': row[4],
+                        'phone_no': row[5],
+                        'resume': row[6],
+                        'profile_pic': row[7]
+                    }
+                    print("User found. Here are the details:")
+                    print(user_data)
+                    return build_response(HTTPStatus.OK, user_data)
+                else:
+                    print("Wrong Password")
+                    return build_response(HTTPStatus.UNAUTHORIZED, "Wrong Password")
+            else:
+                print("No user found.")
+                return build_response(HTTPStatus.NOT_FOUND, "No user found.")
+
+        finally:
+            cursor.close()
+            close_db_connection(connection)
+
+    elif field_name == 'appliedDrive':
+        connection = get_db_connection()
+        user_id = event_arguments['appliedDriveInput']['user_id']
+        Walk_in_drive_id = event_arguments['appliedDriveInput']['Walk_in_drive_id']
+        time_slot_id = event_arguments['appliedDriveInput']['time_slot_id']
+        updated_resume = event_arguments['appliedDriveInput']['updated_resume']
+        job_role_id = event_arguments['appliedDriveInput']['job_role_id']
+
+        try:
+            cursor = connection.cursor()
+            sql = """
+                INSERT INTO applied_drive (user_id, updated_resume, time_slot_id, walk_in_drive_id)
+                VALUES (%s, %s, %s, %s)
+                RETURNING id
+            """
+            cursor.execute(sql, (user_id, updated_resume, time_slot_id, Walk_in_drive_id))
+            inserted_id=cursor.fetchone()[0]
+            print(inserted_id)
+            connection.commit()
+            print("Applied drive record inserted successfully!")
+        except Exception as e:
+            print("Error inserting applied drive record:", e)
+            connection.rollback()
+        finally:
+            cursor.close()
+            close_db_connection(connection)
+
+
+
+        

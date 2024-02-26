@@ -8,5 +8,22 @@ export const resolversConfig: (AppSyncSimulatorPipelineResolverConfig | AppSyncS
         dataSourceName: "LambdaDataSource",
         requestMappingTemplateLocation: "lambdaRequestMappingTemplate.vtl",
         responseMappingTemplateLocation: "lambdaResponseMappingTemplate.vtl"
-    }
+    },
+    {
+        kind: RESOLVER_KIND.UNIT,
+        typeName: "Query",
+        fieldName: "checkLogin",
+        dataSourceName: "LambdaDataSource",
+        requestMappingTemplateLocation: "lambdaRequestMappingTemplate.vtl",
+        responseMappingTemplateLocation: "lambdaResponseMappingTemplate.vtl"
+    },
+    {
+        kind: RESOLVER_KIND.UNIT,
+        typeName: "Mutation",
+        fieldName: "appliedDrive",
+        dataSourceName: "LambdaDataSource",
+        requestMappingTemplateLocation: "lambdaRequestMappingTemplate.vtl",
+        responseMappingTemplateLocation: "lambdaResponseMappingTemplate.vtl"
+    },
+
 ]

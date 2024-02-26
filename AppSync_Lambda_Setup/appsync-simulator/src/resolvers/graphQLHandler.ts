@@ -1,5 +1,3 @@
-// import { books } from "../data/books";
-// import { Book } from "../types/book";
 import { AppSyncResolverEvent } from "aws-lambda";
 import axios from 'axios';
 

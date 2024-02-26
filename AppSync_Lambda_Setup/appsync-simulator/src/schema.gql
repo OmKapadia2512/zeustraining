@@ -25,24 +25,24 @@
 #   getUserById(id: String): User
 # }
 
-# type User {
-#   id: Int!
-#   guid: String!
-#   first_name: String!
-#   last_name: String!
-#   email: String!
-#   password: String!
-#   phone_no: String!
-#   resume: String!
-#   portfolio_url: String
-#   profile_pic: String
-#   dt_created: String!
-#   dt_modified: String!
-#   educationalQualifications: [EducationalQualification!]!
-#   professionalQualifications: [ProfessionalQualification!]!
-#   jobRoles: [JobRole!]!
-#   appliedDrives: [AppliedDrive!]!
-# }
+type User {
+  id: Int!
+  guid: String!
+  first_name: String!
+  last_name: String!
+  email: String!
+  password: String!
+  phone_no: String!
+  resume: String!
+  portfolio_url: String
+  profile_pic: String
+  # dt_created: String!
+  # dt_modified: String!
+  # educationalQualifications: [EducationalQualification!]!
+  # professionalQualifications: [ProfessionalQualification!]!
+  # jobRoles: [JobRole!]!
+  # appliedDrives: [AppliedDrive!]!
+}
 
 # type EducationalQualification {
 #   id: Int!
@@ -97,8 +97,7 @@
 #   timeSlot: TimeSlot!
 #   walkInDrive: WalkInDrive!
 #   preferredJobroles: [jobRoles!]
-#   dt_created: String!
-#   dt_modified: String!
+
 # }
 
 type JobRole {
@@ -193,23 +192,36 @@ type WalkInDrive {
 #   dt_modified: String!
 # }
 
-# input applicationInput {
-#   userId: Int!
-#   walkInDriveId: Int!
-#   selectedTimeSlotId: Int!
-#   updatedResume: String!
-#   selectedJobRoleIds: [Int!]!
-#   guid: String!
-# }
+input appliedDriveInput {
+  user_id: Int!
+  Walk_in_drive_id: Int!
+  time_slot_id: Int!
+  updated_resume: String
+  job_role_id: [Int!]!
+}
+input loginCredentials{
+  userEmail:String!
+  userPassword:String!
+}
 
-# type Mutation {
-#   createUser(input: UserInput!): User
-#   applyToDrive(applicationInput: applicationInput!): AppliedDrive
-# }
+
+type loginOutput{
+  id: Int
+  guid: String
+  first_name: String
+  last_name: String
+  email: String
+  phone_no: String
+  resume: String
+  profile_pic: String
+
+}
+ type Mutation {
+    appliedDrive(appliedDriveInput: appliedDriveInput!):String
+ }
 
 type Query {
-  # users: [User]
-  # user: User
-  # getUserById(id: Int): User
+
+  checkLogin(loginCredentials: loginCredentials!):loginOutput
   getAllWalkInDrives: [WalkInDrive]
 }
