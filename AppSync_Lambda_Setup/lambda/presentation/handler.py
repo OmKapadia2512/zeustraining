@@ -1,198 +1,53 @@
-def build_response(status_code, body):
-    return {
-        "statusCode": status_code,
-        "body": json.dumps(body, default=str),
-        "headers": {"Content-Type": "application/json"},
-    }
-
-
 import json
-from http import HTTPStatus
-import psycopg2
-
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "WalkIn"
-DB_USER = "postgres"
-DB_PASSWORD = "2512"
-
-
-def get_db_connection():
-    connection = psycopg2.connect(
-        host=DB_HOST, port=DB_PORT, dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD
-    )
-    return connection
-
-
-def close_db_connection(connection):
-    if connection:
-        connection.close()
-
+from .Functions.allWalkInDrives import allWalkInDrives
+from .Functions.checkLogin import checkLogin
+from .Functions.appliedDrive import appliedDrive
+from .Functions.createUser import createUser
+from .Functions.walkInDriveById import walkInDriveById
+from .Functions.authentication import authentication
 
 def handle_graphql(event, context):
-    event = json.loads(event["body"])
+    
+    print("line 10")
+    # print(event)
+    
+    if 'body' in event:
+        event_body = json.loads(event["body"])
+    else:
+        event_body = event
 
     data = []
-    print("hello")
-    if type(event) == list:
-        for each_event in event:
+    if isinstance(event_body, list):
+        for each_event in event_body:
             data.append(handle_each_request(each_event))
     else:
-        data = handle_each_request(event)
+        data = handle_each_request(event_body)
 
     return data
 
-
 def handle_each_request(event):
-    field_name = event["info"]["fieldName"]
-    event_source = event["source"]
-    event_arguments = event["arguments"]
+    field_name = event.get('info', {}).get('fieldName')
+    print(field_name)
+    
 
-    data = []
-
-    if field_name == "getAllWalkInDrives":
-        print("1")
-        connection = get_db_connection()
-        print("2")
-        try:
-            cursor = connection.cursor()
-            print("3")
-
-            drive_query = """
-                            SELECT id, guid, drive_title, dt_created, dt_modified, start_date, end_date, location
-                            FROM walk_in_drive
-                        """
-            job_title_query = """
-                                SELECT jr.job_title,jr.package,jr.job_description,job_requirements
-                                FROM job_role jr
-                                JOIN drive_has_job_role dhjr ON jr.id = dhjr.job_role_id
-                                WHERE dhjr.drive_id = %s
-                            """
-            time_slot_query = """
-                                SELECT ts.slot_timings
-                                FROM time_slot ts
-                                JOIN drive_has_time_slot dhts ON ts.id = dhts.time_slot_id
-                                WHERE dhts.drive_id = %s
-                                """
-
-            cursor.execute(drive_query)
-            drives = cursor.fetchall()
-            cursor.close()
-            
-            results = []
-
-
-            for drive in drives:
-                drive_id = drive[0]
-                
-                cursor = connection.cursor()
-                cursor.execute(job_title_query, (drive_id,))
-                job_details = []
-
-                for row in cursor.fetchall():
-                    job_details.append({
-                        'job_title': row[0],
-                        'package': row[1],
-                        'job_description': row[2],
-                        'job_requirements': row[3]
-                    })
-                cursor.execute(time_slot_query, (drive_id,))
-                time_slots = [row[0] for row in cursor.fetchall()]
-                cursor.close()
-                result = {
-                    'id': drive[0],
-                    'guid': drive[1],
-                    'drive_title': drive[2],
-                    'dt_created': drive[3],
-                    'dt_modified': drive[4],
-                    'start_date': drive[5],
-                    'end_date': drive[6],
-                    'location': drive[7],
-                    'job_Roles': job_details,
-                    'time_Slots': time_slots
-                }
-                results.append(result)
-
-            # Print the results
-            for result in results:
-                print(result)
-
-            # Close the connection
-            cursor.close()
-
-        finally:
-            cursor.close()
-            close_db_connection(connection)
-
-        return build_response(HTTPStatus.OK, results)
-
+    if field_name == 'allWalkInDrives':
+        return allWalkInDrives(event)
     elif field_name == 'checkLogin':
-        connection = get_db_connection()
-        userEmail = event_arguments['loginCredentials']['userEmail']
-        userPassword = event_arguments['loginCredentials']['userPassword']
-        try:
-            cursor = connection.cursor()
-            cursor.execute("""
-                SELECT id, guid, first_name, last_name, email, password, phone_no, profile_pic 
-                FROM "user" 
-                WHERE email = %s
-            """, (userEmail,))
-            row = cursor.fetchone()
-
-            if row:
-                stored_password = row[5]
-                if userPassword == stored_password:
-                    user_data = {
-                        'id': row[0],
-                        'guid': row[1],
-                        'first_name': row[2],
-                        'last_name': row[3],
-                        'email': row[4],
-                        'phone_no': row[5],
-                        'resume': row[6],
-                        'profile_pic': row[7]
-                    }
-                    print("User found. Here are the details:")
-                    print(user_data)
-                    return build_response(HTTPStatus.OK, user_data)
-                else:
-                    print("Wrong Password")
-                    return build_response(HTTPStatus.UNAUTHORIZED, "Wrong Password")
-            else:
-                print("No user found.")
-                return build_response(HTTPStatus.NOT_FOUND, "No user found.")
-
-        finally:
-            cursor.close()
-            close_db_connection(connection)
-
+        return checkLogin(event)
     elif field_name == 'appliedDrive':
-        connection = get_db_connection()
-        user_id = event_arguments['appliedDriveInput']['user_id']
-        Walk_in_drive_id = event_arguments['appliedDriveInput']['Walk_in_drive_id']
-        time_slot_id = event_arguments['appliedDriveInput']['time_slot_id']
-        updated_resume = event_arguments['appliedDriveInput']['updated_resume']
-        job_role_id = event_arguments['appliedDriveInput']['job_role_id']
-
-        try:
-            cursor = connection.cursor()
-            sql = """
-                INSERT INTO applied_drive (user_id, updated_resume, time_slot_id, walk_in_drive_id)
-                VALUES (%s, %s, %s, %s)
-                RETURNING id
-            """
-            cursor.execute(sql, (user_id, updated_resume, time_slot_id, Walk_in_drive_id))
-            inserted_id=cursor.fetchone()[0]
-            print(inserted_id)
-            connection.commit()
-            print("Applied drive record inserted successfully!")
-        except Exception as e:
-            print("Error inserting applied drive record:", e)
-            connection.rollback()
-        finally:
-            cursor.close()
-            close_db_connection(connection)
-
-
-
         
+        return appliedDrive(event) 
+    
+    elif field_name == 'createUser':
+        return createUser(event)
+    elif field_name == 'walkInDriveById':
+        return walkInDriveById(event.get('arguments', {}).get('input'))
+    elif field_name == 'authentication':
+            print("line 43")
+            return authentication(event)
+    else:
+        return {
+            'statusCode': 404,
+            'body': 'Handler not found for field name: {}'.format(field_name),
+            'headers': {'Content-Type': 'application/json'}
+        }

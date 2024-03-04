@@ -5,6 +5,7 @@ import RegistrationNavHeader from "RegistrationMFE/RegistrationNavHeader";
 const RegisterLayout = () => {
   return (
     <div>
+      <Header/>
       <RegistrationNavHeader/>
       <Outlet /> 
     </div>

@@ -3,10 +3,13 @@ import styles from "./style.module.css";
 import PersonalInfo from "../PersonalInfo/PersonalInfo";
 import Qualifications from "../Qualification/Qualification";
 
+
 const Review = ({ personalInfoEditMode, qualificationEditMode, setQualificationEditMode, setPersonalInfoEditMode }) => {
+  console.log("hello")
   const togglePersonalInfoEditMode = () => {
     setPersonalInfoEditMode(prevEditMode => !prevEditMode);
   };
+  // console.log(constructMutationObject())
 
   const toggleQualificationEditMode = () => {
     setQualificationEditMode(prevEditMode => !prevEditMode);

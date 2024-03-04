@@ -1,29 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import Dashboard from "DashboardMFE/Dashboard";
-// import DriveList from "DashboardMFE/DriveList";
-// import DriveDetail from "DashboardMFE/DriveDetail";
-// import ApplicationSuccessDetails from "DashboardMFE/ApplicationSuccessDetails";
 import Login from "LoginMFE/Login";
-
+import Header from "HeaderMFE/Header";
 import Registration from "RegistrationMFE/Registration";
+import GetSessionData from "LoginMFE/Fetch";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+const App = () => {
+  useEffect(() => {
+    console.log("container")
+    GetSessionData();
+  }, []);
 
-const App = () => (
-  <Router>
-    <div style={{width:"90%", margin:"auto"}}>
+  return (
+    <Router>
+      <Header />
       <Routes>
-        <Route path="/driveList/*" element={<Dashboard />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/registration/*" element={<Registration />} />
+        <Route
+          path="/driveList/*"
+          element={
+            <div style={{ width: "90%", margin: "auto" }}>
+              <Dashboard />
+            </div>
+          }
+        />
       </Routes>
-    </div>
-
-    <Routes>
-      <Route path="/" element={<Login />}/>
-      <Route path="/registration/*" element={<Registration />} />
-  
-    </Routes>
-  </Router>
-);
+    </Router>
+  );
+};
 
 createRoot(document.getElementById("app")).render(<App />);

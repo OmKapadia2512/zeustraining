@@ -3,8 +3,10 @@ import axios from 'axios';
 
 export const handler = async (event: AppSyncResolverEvent<object, any>) => {
     try {
+        console.log("hello")
         const response = await axios.post('http://localhost:4000/dev/api/handle_graphql', event);
-        return response.data
+        console.log(response)
+        return response
     } catch (error: any) {
         console.error('Error in fetchData:', error.message);
         throw new Error('Error fetching data');

@@ -13,8 +13,8 @@ const Dashboard = () => (
     
     <Routes>
       <Route path="/" element={<DriveList/>} />
-      <Route path=":id" element={<DriveDetail/>} />
-      <Route path=":id/hallTicket" element={<ApplicationSuccessDetails/>} />
+      <Route path=":guid" element={<DriveDetail/>} />
+      <Route path="hallTicket" element={<ApplicationSuccessDetails/>} />
     </Routes>
     
   </div>

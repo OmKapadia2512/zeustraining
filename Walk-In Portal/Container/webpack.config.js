@@ -44,6 +44,7 @@ module.exports = (_, argv) => ({
       name: "Container",
       filename: "remoteEntry.js",
       remotes: {
+        HeaderMFE:"HeaderMFE@http://localhost:8085/remoteEntry.js",
         DashboardMFE:"DashboardMFE@http://localhost:8083/remoteEntry.js",
         LoginMFE: "LoginMFE@http://localhost:8081/remoteEntry.js",
         RegistrationMFE:"RegistrationMFE@http://localhost:8082/remoteEntry.js",

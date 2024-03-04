@@ -21,16 +21,19 @@ class AppSyncSimulator {
 
     async start() {
         const simulatorConfig: AmplifyAppSyncSimulatorConfig = {
+            
             appSync: {
                 // Uncomment this for GraphQL sandbox
-                defaultAuthenticationType: {
-                    authenticationType: AmplifyAppSyncSimulatorAuthenticationType.AMAZON_COGNITO_USER_POOLS,
-                    cognitoUserPoolConfig: {},
-                },
-                // Uncomment this for local development
+               
                 // defaultAuthenticationType: {
-                //     authenticationType: AmplifyAppSyncSimulatorAuthenticationType.API_KEY
+                    
+                //     authenticationType: AmplifyAppSyncSimulatorAuthenticationType.AMAZON_COGNITO_USER_POOLS,
+                //     cognitoUserPoolConfig: {},
                 // },
+                // Uncomment this for local development
+                defaultAuthenticationType: {
+                    authenticationType: AmplifyAppSyncSimulatorAuthenticationType.API_KEY
+                },
                 name: 'api-local',
                 additionalAuthenticationProviders: [],
                 apiKey: 'dummy-api-key'

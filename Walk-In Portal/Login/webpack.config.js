@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
+
 module.exports = (_, argv) => ({
   output: {
     publicPath: "http://localhost:8081/",
@@ -36,6 +37,12 @@ module.exports = (_, argv) => ({
           loader: "babel-loader",
         },
       },
+      // Add a new rule to handle GraphQL schema files
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: "graphql-tag/loader",
+      },
     ],
   },
 
@@ -43,9 +50,12 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "LoginMFE",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        UtilityMFE: "UtilityMFE@http://localhost:8086/remoteEntry.js",
+      },
       exposes: {
-        "./Login":"./src/Components/Login.jsx"
+        "./Login":"./src/Components/Login.jsx",
+        "./Fetch":"./src/fetch.js"
       },
       shared: {
         ...deps,

@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import "./style.css";
 import useProfessionalStore from "../../Store/professionalStore";
 
-const Professional = ({editMode}) => {
+const Professional = ({ editMode }) => {
   const [showAccordion, setShowAccordion] = useState(true);
   const [listUpQ, setListUpQ] = useState(true);
- 
 
   const {
     applicantType,
@@ -30,7 +29,7 @@ const Professional = ({editMode}) => {
   };
 
   const handleApplicantTypeChange = (e) => {
-    setField('applicantType', e.target.value);
+    setField("applicantType", e.target.value);
   };
 
   return (
@@ -52,38 +51,38 @@ const Professional = ({editMode}) => {
       </div>
 
       <div className="applicant-type-container">
-      <label>Applicant Type*</label>
-      <div className="applicant-type">
-        <div className="applicant-type-fresher">
-          <input
-            type="radio"
-            name="applicant_type"
-            id="fresher"
-            value="fresher"
-            checked={applicantType === 'fresher'}
-            onChange={handleApplicantTypeChange}
-            disabled={editMode}
-          />
-          <label htmlFor="fresher" className="radio-label">
-            Fresher
-          </label>
-        </div>
-        <div className="applicant-type-experience">
-          <input
-            type="radio"
-            name="applicant_type"
-            id="experience"
-            value="experience"
-            checked={applicantType === 'experience'}
-            onChange={handleApplicantTypeChange}
-            disabled={editMode}
-          />
-          <label htmlFor="experience" className="radio-label">
-            Experience
-          </label>
+        <label>Applicant Type*</label>
+        <div className="applicant-type">
+          <div className="applicant-type-fresher">
+            <input
+              type="radio"
+              name="applicant_type"
+              id="fresher"
+              value="fresher"
+              checked={applicantType === "fresher"}
+              onChange={handleApplicantTypeChange}
+              disabled={editMode}
+            />
+            <label htmlFor="fresher" className="radio-label">
+              Fresher
+            </label>
+          </div>
+          <div className="applicant-type-experience">
+            <input
+              type="radio"
+              name="applicant_type"
+              id="experience"
+              value="experience"
+              checked={applicantType === "experience"}
+              onChange={handleApplicantTypeChange}
+              disabled={editMode}
+            />
+            <label htmlFor="experience" className="radio-label">
+              Experience
+            </label>
+          </div>
         </div>
       </div>
-    </div>
       {showAccordion && (
         <div className="accordion-item">
           {applicantType === "experience" && (
@@ -93,7 +92,6 @@ const Professional = ({editMode}) => {
                 <input
                   type="number"
                   placeholder="5"
-                  defaultValue="5"
                   id="experience"
                   value={yearsOfExperience}
                   disabled={editMode}
@@ -107,7 +105,6 @@ const Professional = ({editMode}) => {
                 <input
                   type="number"
                   placeholder="500000"
-                  defaultValue="500000"
                   name="curr_ctc"
                   id="curr_ctc"
                   value={currentCTC}
@@ -120,7 +117,6 @@ const Professional = ({editMode}) => {
                 <input
                   type="number"
                   placeholder="6,50,000"
-                  defaultValue="650000"
                   name="expected_ctc"
                   id="expected_ctc"
                   value={expectedCTC}
@@ -129,7 +125,9 @@ const Professional = ({editMode}) => {
                 />
               </div>
               <div className="input-group">
-                <label>Select All The Technologies You Expertise In*</label>
+                <label>
+                  Select All The Technologies You Expertise In*
+                </label>
                 <div className="disp-flex">
                   <input
                     type="checkbox"
@@ -155,7 +153,9 @@ const Professional = ({editMode}) => {
                 </div>
               </div>
               <div className="input-group">
-                <label htmlFor="other_tech">If others, please mention</label>
+                <label htmlFor="other_tech">
+                  If others, please mention
+                </label>
                 <input
                   style={{ width: "50%" }}
                   type="text"
@@ -173,14 +173,18 @@ const Professional = ({editMode}) => {
           )}
 
           <div className="input-group">
-            <label>Select All The Technologies You Are Familiar In*</label>
+            <label>
+              Select All The Technologies You Are Familiar In*
+            </label>
             <div className="disp-flex">
               <input
                 type="checkbox"
                 name="tech"
                 id="javascript"
                 checked={technologiesFamiliar.JavaScript}
-                onChange={(e) => setField("technologiesFamiliar", "JavaScript")}
+                onChange={(e) =>
+                  setField("technologiesFamiliar", "JavaScript")
+                }
                 disabled={editMode}
               />
               <label
@@ -197,7 +201,9 @@ const Professional = ({editMode}) => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="other_tech">If others, please mention</label>
+            <label htmlFor="other_tech">
+              If others, please mention
+            </label>
             <div style={{ padding: 0, margin: 0, marginTop: "0px" }}>
               <input
                 style={{ width: "50%" }}
@@ -208,7 +214,6 @@ const Professional = ({editMode}) => {
                 id="other_tech"
                 onChange={(e) =>
                   setField("otherTechnologiesFamiliar", e.target.value)
-                
                 }
                 disabled={editMode}
               />
@@ -226,7 +231,9 @@ const Professional = ({editMode}) => {
                   marginBottom: 0,
                 }}
               >
-                <label>Are You Currently On Notice Period</label>
+                <label>
+                  Are You Currently On Notice Period
+                </label>
                 <div className="noticePeriod">
                   <div className="noticePeriod-yes">
                     <input
@@ -234,7 +241,7 @@ const Professional = ({editMode}) => {
                       name="notice_period"
                       id="on_notice"
                       value="yes"
-                      checked={noticePeriod === true} // Bind checked state
+                      checked={noticePeriod === true}
                       onChange={() => setField("noticePeriod", true)}
                       disabled={editMode}
                     />
@@ -248,7 +255,7 @@ const Professional = ({editMode}) => {
                       name="notice_period"
                       id="not_on_notice"
                       value="no"
-                      checked={noticePeriod === false} // Bind checked state
+                      checked={noticePeriod === false}
                       onChange={() => setField("noticePeriod", false)}
                       disabled={editMode}
                     />
@@ -261,12 +268,14 @@ const Professional = ({editMode}) => {
               <div className="disp-flex">
                 <div className="child-1">
                   <div className="input-group">
-                    <label>If Yes, when will your notice period end?*</label>
+                    <label>
+                      If Yes, when will your notice period end?*
+                    </label>
                     <input
                       style={{ width: "98%" }}
                       type="date"
                       placeholder=""
-                      value={noticePeriodEndDate} // Bind value to state
+                      value={noticePeriodEndDate}
                       name="notice_period_end_date"
                       id="notice_period_end_date"
                       onChange={(e) =>
@@ -285,7 +294,7 @@ const Professional = ({editMode}) => {
                       name="notice_time"
                       id="notice_time"
                       className="qual-select"
-                      value={noticePeriodDuration} // Bind value to state
+                      value={noticePeriodDuration}
                       onChange={(e) =>
                         setField("noticePeriodDuration", e.target.value)
                       }

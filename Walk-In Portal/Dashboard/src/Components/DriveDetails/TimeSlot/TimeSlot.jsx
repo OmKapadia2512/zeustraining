@@ -1,11 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
+import { useDriveStore } from "../../../Store/store";
 
-const TimeSlot = () => {
+const TimeSlot = ({ timeSlots, job_Roles }) => {
+  console.log("TimeSlot Component")
+  const { applyDrive, setApplyDrive } = useDriveStore();
   const [detailsShow, setDetailsShow] = useState(false);
+
+
+  useEffect(() => {
+    setApplyDrive({});
+  }, []);
 
   const handleToggle = () => {
     setDetailsShow((prevValue) => !prevValue);
+  };
+
+  const handleTimeSlotSelection = (event) => {
+    const selectedId = event.target.value;
+    setApplyDrive({ ...applyDrive, time_slot_id: selectedId });
+  };
+
+  const handleJobRoleChange = (e) => {
+    const selectedJobRole = e.target.value;
+    const isChecked = e.target.checked;
+
+    let updatedJobRoles = applyDrive.job_role_id || [];
+
+    if (isChecked) {
+      if (!updatedJobRoles.includes(selectedJobRole)) {
+        updatedJobRoles = [...updatedJobRoles, selectedJobRole];
+      }
+    } else {
+      updatedJobRoles = updatedJobRoles.filter(
+        (role) => role !== selectedJobRole
+      );
+    }
+    
+    setApplyDrive({ ...applyDrive, job_role_id: updatedJobRoles });
   };
 
   return (
@@ -15,15 +47,9 @@ const TimeSlot = () => {
           <p>Time Slots and Preference</p>
           <div className={styles.toggleButton} onClick={handleToggle}>
             {detailsShow ? (
-              <img
-                src="../../../../assets/icons/list-up.svg"
-                alt="toggle-icon"
-              />
+              <img src="../../../../assets/icons/list-up.svg" alt="toggle-icon" />
             ) : (
-              <img
-                src="../../../../assets/icons/list-down.svg"
-                alt="toggle-icon"
-              />
+              <img src="../../../../assets/icons/list-down.svg" alt="toggle-icon" />
             )}
           </div>
         </div>
@@ -33,20 +59,18 @@ const TimeSlot = () => {
           <div className={styles.time}>
             <p>Select a Time Slot :</p>
             <div className={styles.options}>
-              <div className={styles.op1}>
-                <input type="radio" name="time" id={styles.time1} value="9-11AM" />
-                <label htmlFor={styles.time1}>9:00 AM to 11:00 AM</label>
-              </div>
-
-              <div className={styles.op1}>
-                <input type="radio" name="time" id={styles.time2} value="11-1PM" />
-                <label htmlFor={styles.time2}>11:00 AM to 1:00 PM</label>
-              </div>
-
-              <div className={styles.op1}>
-                <input type="radio" name="time" id={styles.time3} value="1-3PM" />
-                <label htmlFor={styles.time3}>1:00 PM to 3:00 PM</label>
-              </div>
+              {timeSlots && timeSlots.map((slot, index) => (
+                <div key={index} className={styles.op1}>
+                  <input
+                    type="radio"
+                    name="time"
+                    id={`time${index}`}
+                    value={slot.id} 
+                    onChange={handleTimeSlotSelection}
+                  />
+                  <label htmlFor={`time${index}`}>{slot.time_slot}</label>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -55,35 +79,18 @@ const TimeSlot = () => {
           <div className={styles.preference}>
             <p>Select Your Preference :</p>
             <div className={styles.options}>
-              <div className={styles.op1}>
-                <input
-                  type="checkbox"
-                  id={styles.option1}
-                  name="option1"
-                  value="Instructional Designer"
-                />
-                <label htmlFor={styles.option1}>Instructional Designer</label>
-              </div>
-
-              <div className={styles.op1}>
-                <input
-                  type="checkbox"
-                  id={styles.option2}
-                  name="option2"
-                  value="Instructional Designer"
-                />
-                <label htmlFor={styles.option2}>Instructional Designer</label>
-              </div>
-
-              <div className={styles.op1}>
-                <input
-                  type="checkbox"
-                  id={styles.option3}
-                  name="option3"
-                  value="Instructional Designer"
-                />
-                <label htmlFor={styles.option3}>Instructional Designer</label>
-              </div>
+              {job_Roles && job_Roles.map((role, index) => (
+                <div key={index} className={styles.op1}>
+                  <input
+                    type="checkbox"
+                    id={`jobRole${index}`}
+                    name="jobRole"
+                    value={role.id}
+                    onChange={handleJobRoleChange}
+                  />
+                  <label htmlFor={`jobRole${index}`}>{role.job_title}</label>
+                </div>
+              ))}
             </div>
           </div>
 
